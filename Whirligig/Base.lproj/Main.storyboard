@@ -57,11 +57,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="whirligig" translatesAutoresizingMaskIntoConstraints="NO" id="EKt-TG-rTW">
+                                <rect key="frame" x="22" y="282.5" width="370" height="331"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EKt-TG-rTW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OMM-z3-Ksl"/>
+                            <constraint firstItem="EKt-TG-rTW" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="fJc-bu-5nT"/>
+                            <constraint firstItem="EKt-TG-rTW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="leA-ed-Tf9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="whirligigImageView" destination="EKt-TG-rTW" id="r1A-qx-C75"/>
                         <outlet property="xValueLabel" destination="ckB-5Z-2J1" id="4Z5-eD-28V"/>
                         <outlet property="yValueLabel" destination="kxd-lx-Krd" id="1rA-Jz-4n6"/>
                         <outlet property="zValueLabel" destination="Peu-rI-JF9" id="U88-r8-TuO"/>
@@ -72,4 +81,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="whirligig" width="370" height="444"/>
+    </resources>
 </document>

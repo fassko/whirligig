@@ -40,18 +40,37 @@ struct MotionViewModel: MotionViewModelProtocol {
     })
     .disposed(by: disposeBag)
     
-    motionManager.startGyroUpdates(to: motionUpdateQueue!) { data, error in
+    motionManager.startDeviceMotionUpdates(to: .main) { data, error in
       if let error = error {
         self.gyroDataProvider.on(.error(error))
       } else if let data = data {
-        let x = data.rotationRate.x
-        let y = data.rotationRate.y
-        let z = data.rotationRate.z
+        
+        let x = data.gravity.x
+        let y = data.gravity.y
+        let z = data.gravity.z
         let gyroData = GyroData(x: x,
                                 y: y,
-                                z: z)
+                                z: z,
+                                pitch: data.attitude.pitch)
         self.gyroDataProvider.on(.next(gyroData))
       }
     }
+    
+//    motionManager.startGyroUpdates(to: motionUpdateQueue!) { data, error in
+//      if let error = error {
+//        self.gyroDataProvider.on(.error(error))
+//      } else if let data = data {
+//
+//
+//
+//        let x = data.rotationRate.x
+//        let y = data.rotationRate.y
+//        let z = data.rotationRate.z
+//        let gyroData = GyroData(x: x,
+//                                y: y,
+//                                z: z)
+//        self.gyroDataProvider.on(.next(gyroData))
+//      }
+//    }
   }
 }

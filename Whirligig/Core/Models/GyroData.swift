@@ -12,4 +12,6 @@ struct GyroData {
   let x: Double
   let y: Double
   let z: Double
+  
+  let pitch: Double
 }
