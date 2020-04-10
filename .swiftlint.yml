@@ -1,0 +1,8 @@
+included:
+  - whirligig
+  - whirligigTests
+
+disabled_rules:
+  - trailing_whitespace
+
+reporter: "xcode"

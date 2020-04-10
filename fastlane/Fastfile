@@ -1,0 +1,11 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Generate app icon"
+  lane :generate_app_icon do
+    appicon(appicon_image_file: 'Icon.png',
+      appicon_devices: [:iphone, :ios_marketing],
+      appicon_path: 'Whirligig//Assets.xcassets'
+    )
+  end
+end
