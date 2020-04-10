@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  MotionCoordinator.swift
 //  Whirligig
 //
 //  Created by Kristaps Grinbergs on 10/04/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: Coordinator {
+class MotionCoordinator: Coordinator {
   
   let window: UIWindow?
   
@@ -19,6 +19,13 @@ class MainCoordinator: Coordinator {
   
   func start() {
     let motionViewController = MotionViewController.instantiate()
+    
+    if CommandLine.arguments.contains("-mockGyroData") {
+      motionViewController.viewModel = MotionViewModelMock()
+    } else {
+      motionViewController.viewModel = MotionViewModel()
+    }
+    
     window?.rootViewController = motionViewController
   }
   

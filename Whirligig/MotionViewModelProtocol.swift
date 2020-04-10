@@ -1,0 +1,21 @@
+//
+//  MotionViewModelProtocol.swift
+//  Whirligig
+//
+//  Created by Kristaps Grinbergs on 10/04/2020.
+//  Copyright © 2020 fassko. All rights reserved.
+//
+
+import Foundation
+
+import RxSwift
+
+protocol MotionViewModelProtocol {
+  var xValue: PublishSubject<String> { get }
+  var yValue: PublishSubject<String> { get }
+  var zValue: PublishSubject<String> { get }
+  
+  var gyroDataProvider: PublishSubject<GyroData> { get }
+  
+  func startGyroUpdates()
+}

@@ -2,6 +2,12 @@ included:
   - whirligig
   - whirligigTests
 
+identifier_name:
+  excluded:
+    - x
+    - y
+    - z
+
 disabled_rules:
   - trailing_whitespace
 
