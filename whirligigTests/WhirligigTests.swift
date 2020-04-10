@@ -7,7 +7,11 @@
 //
 
 import XCTest
+
 @testable import Whirligig
+
+import RxBlocking
+import RxTest
 
 class WhirligigTests: XCTestCase {
   

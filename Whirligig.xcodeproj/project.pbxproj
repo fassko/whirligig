@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		639154762440E7F5001F328A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 639154752440E7F5001F328A /* RxSwift */; };
-		639154782440E7F5001F328A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 639154772440E7F5001F328A /* RxCocoa */; };
 		6391547A2440E902001F328A /* MotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154792440E902001F328A /* MotionViewModel.swift */; };
 		6391547D2440EE74001F328A /* GyroData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391547C2440EE74001F328A /* GyroData.swift */; };
 		639154802440F1AF001F328A /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = 6391547F2440F1AF001F328A /* RxSwiftExt */; };
 		639154832440F21E001F328A /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = 639154822440F21E001F328A /* NSObject-Rx */; };
 		639154852440F2B8001F328A /* MotionViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154842440F2B8001F328A /* MotionViewModelProtocol.swift */; };
 		639154872440F431001F328A /* MotionViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154862440F431001F328A /* MotionViewModelMock.swift */; };
+		6391548A24411535001F328A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6391548924411535001F328A /* RxSwift */; };
+		6391548E24411535001F328A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6391548D24411535001F328A /* RxCocoa */; };
+		639154932441155A001F328A /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 639154922441155A001F328A /* RxBlocking */; };
+		639154992441155A001F328A /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 639154982441155A001F328A /* RxTest */; };
 		63EA57602440D76900F06F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA575F2440D76900F06F1B /* AppDelegate.swift */; };
 		63EA57642440D76900F06F1B /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA57632440D76900F06F1B /* MotionViewController.swift */; };
 		63EA57672440D76900F06F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EA57652440D76900F06F1B /* Main.storyboard */; };
@@ -61,10 +63,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6391548A24411535001F328A /* RxSwift in Frameworks */,
+				6391548E24411535001F328A /* RxCocoa in Frameworks */,
 				639154802440F1AF001F328A /* RxSwiftExt in Frameworks */,
-				639154782440E7F5001F328A /* RxCocoa in Frameworks */,
 				639154832440F21E001F328A /* NSObject-Rx in Frameworks */,
-				639154762440E7F5001F328A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639154992441155A001F328A /* RxTest in Frameworks */,
+				639154932441155A001F328A /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +90,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		639154912441155A001F328A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63EA57532440D76800F06F1B = {
 			isa = PBXGroup;
 			children = (
 				63EA575E2440D76900F06F1B /* Whirligig */,
 				63EA57752440D76B00F06F1B /* whirligigTests */,
 				63EA575D2440D76900F06F1B /* Products */,
+				639154912441155A001F328A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,10 +171,10 @@
 			);
 			name = Whirligig;
 			packageProductDependencies = (
-				639154752440E7F5001F328A /* RxSwift */,
-				639154772440E7F5001F328A /* RxCocoa */,
 				6391547F2440F1AF001F328A /* RxSwiftExt */,
 				639154822440F21E001F328A /* NSObject-Rx */,
+				6391548924411535001F328A /* RxSwift */,
+				6391548D24411535001F328A /* RxCocoa */,
 			);
 			productName = whirligig;
 			productReference = 63EA575C2440D76900F06F1B /* Whirligig.app */;
@@ -182,6 +194,10 @@
 				63EA57742440D76B00F06F1B /* PBXTargetDependency */,
 			);
 			name = WhirligigTests;
+			packageProductDependencies = (
+				639154922441155A001F328A /* RxBlocking */,
+				639154982441155A001F328A /* RxTest */,
+			);
 			productName = whirligigTests;
 			productReference = 63EA57722440D76B00F06F1B /* WhirligigTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -215,9 +231,9 @@
 			);
 			mainGroup = 63EA57532440D76800F06F1B;
 			packageReferences = (
-				639154742440E7F5001F328A /* XCRemoteSwiftPackageReference "RxSwift" */,
 				6391547E2440F1AF001F328A /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				639154812440F21E001F328A /* XCRemoteSwiftPackageReference "NSObject-Rx" */,
+				6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 63EA575D2440D76900F06F1B /* Products */;
 			projectDirPath = "";
@@ -553,14 +569,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		639154742440E7F5001F328A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.1;
-			};
-		};
 		6391547E2440F1AF001F328A /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
@@ -577,19 +585,17 @@
 				minimumVersion = 5.0.3;
 			};
 		};
+		6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		639154752440E7F5001F328A /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 639154742440E7F5001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		639154772440E7F5001F328A /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 639154742440E7F5001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
 		6391547F2440F1AF001F328A /* RxSwiftExt */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6391547E2440F1AF001F328A /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
@@ -599,6 +605,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 639154812440F21E001F328A /* XCRemoteSwiftPackageReference "NSObject-Rx" */;
 			productName = "NSObject-Rx";
+		};
+		6391548924411535001F328A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		6391548D24411535001F328A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		639154922441155A001F328A /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		639154982441155A001F328A /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
