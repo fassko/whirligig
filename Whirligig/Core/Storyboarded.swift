@@ -3,7 +3,7 @@
 //  whirligig
 //
 //  Created by Kristaps Grinbergs on 31/07/2019.
-//  Copyright © 2019 Augi Draugi. All rights reserved.
+//  Copyright © 2019 fassko. All rights reserved.
 //
 
 import UIKit

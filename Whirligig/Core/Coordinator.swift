@@ -6,4 +6,9 @@
 //  Copyright © 2020 fassko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol Coordinator {
+  
+  func start()
+}

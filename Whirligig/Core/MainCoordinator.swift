@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import UIKit
+
+class MainCoordinator: Coordinator {
+  
+  let window: UIWindow?
+  
+  init(_ window: UIWindow?) {
+    self.window = window
+  }
+  
+  func start() {
+    let motionViewController = MotionViewController.instantiate()
+    window?.rootViewController = motionViewController
+  }
+  
+}
