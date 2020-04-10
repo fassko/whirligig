@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "7F99D0E6-53BD-47EB-9786-87CB15AC2553",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Whirligig.xcodeproj",
+      "identifier" : "63EA575B2440D76800F06F1B",
+      "name" : "Whirligig"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Whirligig.xcodeproj",
+        "identifier" : "63EA57712440D76B00F06F1B",
+        "name" : "WhirligigTests"
+      }
+    }
+  ],
+  "version" : 1
+}

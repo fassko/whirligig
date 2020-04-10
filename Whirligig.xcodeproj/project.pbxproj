@@ -43,6 +43,7 @@
 		6391547C2440EE74001F328A /* GyroData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroData.swift; sourceTree = "<group>"; };
 		639154842440F2B8001F328A /* MotionViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelProtocol.swift; sourceTree = "<group>"; };
 		639154862440F431001F328A /* MotionViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelMock.swift; sourceTree = "<group>"; };
+		6391549A244115DE001F328A /* Whirligig.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Whirligig.xctestplan; sourceTree = "<group>"; };
 		63EA575C2440D76900F06F1B /* Whirligig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whirligig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EA575F2440D76900F06F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63EA57632440D76900F06F1B /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				63EA57762440D76B00F06F1B /* WhirligigTests.swift */,
+				6391549A244115DE001F328A /* Whirligig.xctestplan */,
 				63EA57782440D76B00F06F1B /* Info.plist */,
 			);
 			path = whirligigTests;

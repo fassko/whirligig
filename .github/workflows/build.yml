@@ -1,10 +1,10 @@
-name: Build
+name: Build and test
 
 on: [push, pull_request]
 
 jobs:
   build:
-    name: Build
+    name: Build and test
     runs-on: macOS-latest
 
     steps:
@@ -13,5 +13,5 @@ jobs:
     - name: Resolve dependencies
       run: xcodebuild -resolvePackageDependencies
 
-    - name: Build
-      run: set -o pipefail && xcodebuild -project Whirligig.xcodeproj -scheme Whirligig clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination "platform=iOS Simulator,name=iPhone 11 Pro" | xcpretty --color
+    - name: Test
+      run: set -o pipefail && xcodebuild -project Whirligig.xcodeproj -scheme Whirligig clean test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination "platform=iOS Simulator,name=iPhone 11 Pro" | xcpretty --color

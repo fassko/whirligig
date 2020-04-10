@@ -14,5 +14,7 @@ import RxBlocking
 import RxTest
 
 class WhirligigTests: XCTestCase {
-  
+  func testMock() {
+    
+  }
 }
