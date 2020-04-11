@@ -2,6 +2,8 @@
 
 > Please write an app which uses RxSwift, aggregates data from sensors (like gyroscope), gets system info and displays it. No fancy UI is expected, but having good UX would be nice.
 
+![alt text](schreenshot.png)
+
 ## Running the app
 
 Open `Whirligig.xcodeproj` and allow for 3rd party dependancies to download with SwiftPM.
