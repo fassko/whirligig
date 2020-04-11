@@ -1,5 +1,5 @@
 //
-//  Double.swift
+//  Constants.swift
 //  Whirligig
 //
 //  Created by Kristaps Grinbergs on 11/04/2020.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-extension Double {
-  func rounded(toPlaces places: Int = 3) -> String {
-    String(format: "%.\(places)f", self)
-  }
+enum Constants {
+  static var motionUpdateInerval = 0.2
 }

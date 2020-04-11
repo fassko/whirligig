@@ -21,6 +21,8 @@
 		6391549E2441B804001F328A /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391549D2441B804001F328A /* CommandLine.swift */; };
 		639154A42441BB2E001F328A /* MotionViewModelTestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154A22441B9E0001F328A /* MotionViewModelTestMock.swift */; };
 		639154A62441C74B001F328A /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154A52441C74B001F328A /* Double.swift */; };
+		639154A82441CDE6001F328A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154A72441CDE6001F328A /* Constants.swift */; };
+		639154AB2441D24A001F328A /* RxAnimated in Frameworks */ = {isa = PBXBuildFile; productRef = 639154AA2441D24A001F328A /* RxAnimated */; };
 		63EA57602440D76900F06F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA575F2440D76900F06F1B /* AppDelegate.swift */; };
 		63EA57642440D76900F06F1B /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA57632440D76900F06F1B /* MotionViewController.swift */; };
 		63EA57672440D76900F06F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EA57652440D76900F06F1B /* Main.storyboard */; };
@@ -52,6 +54,7 @@
 		6391549D2441B804001F328A /* CommandLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLine.swift; sourceTree = "<group>"; };
 		639154A22441B9E0001F328A /* MotionViewModelTestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelTestMock.swift; sourceTree = "<group>"; };
 		639154A52441C74B001F328A /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		639154A72441CDE6001F328A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63EA575C2440D76900F06F1B /* Whirligig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whirligig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EA575F2440D76900F06F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63EA57632440D76900F06F1B /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639154AB2441D24A001F328A /* RxAnimated in Frameworks */,
 				6391548A24411535001F328A /* RxSwift in Frameworks */,
 				6391548E24411535001F328A /* RxCocoa in Frameworks */,
 				639154802440F1AF001F328A /* RxSwiftExt in Frameworks */,
@@ -187,6 +191,7 @@
 				6391547B2440EDFF001F328A /* Models */,
 				639154A02441B835001F328A /* Coordinator */,
 				6391549F2441B81D001F328A /* Extensions */,
+				639154A72441CDE6001F328A /* Constants.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				639154822440F21E001F328A /* NSObject-Rx */,
 				6391548924411535001F328A /* RxSwift */,
 				6391548D24411535001F328A /* RxCocoa */,
+				639154AA2441D24A001F328A /* RxAnimated */,
 			);
 			productName = whirligig;
 			productReference = 63EA575C2440D76900F06F1B /* Whirligig.app */;
@@ -272,6 +278,7 @@
 				6391547E2440F1AF001F328A /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				639154812440F21E001F328A /* XCRemoteSwiftPackageReference "NSObject-Rx" */,
 				6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				639154A92441D24A001F328A /* XCRemoteSwiftPackageReference "RxAnimated" */,
 			);
 			productRefGroup = 63EA575D2440D76900F06F1B /* Products */;
 			projectDirPath = "";
@@ -335,6 +342,7 @@
 				63EA57602440D76900F06F1B /* AppDelegate.swift in Sources */,
 				63EA57892440D9A400F06F1B /* MotionCoordinator.swift in Sources */,
 				6391549C24419FCE001F328A /* RxSwift.swift in Sources */,
+				639154A82441CDE6001F328A /* Constants.swift in Sources */,
 				639154852440F2B8001F328A /* MotionViewModelProtocol.swift in Sources */,
 				6391547D2440EE74001F328A /* GyroData.swift in Sources */,
 				6391547A2440E902001F328A /* MotionViewModel.swift in Sources */,
@@ -635,6 +643,14 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		639154A92441D24A001F328A /* XCRemoteSwiftPackageReference "RxAnimated" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAnimated";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -667,6 +683,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
+		};
+		639154AA2441D24A001F328A /* RxAnimated */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 639154A92441D24A001F328A /* XCRemoteSwiftPackageReference "RxAnimated" */;
+			productName = RxAnimated;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 import NSObject_Rx
+import RxAnimated
 
 class MotionViewController: UIViewController, Storyboarded {
   
@@ -23,8 +24,6 @@ class MotionViewController: UIViewController, Storyboarded {
   
   var viewModel: MotionViewModelProtocol?
   
-  private var gyroDataProvider: Observable<GyroData>?
-  
   required init?(coder: NSCoder) {
     super.init(coder: coder)
   }
@@ -32,42 +31,49 @@ class MotionViewController: UIViewController, Storyboarded {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    gyroDataProvider = viewModel?.gyroUpdates()
-    
-    gyroDataProvider?
-      .asObservable()
-      .flatMap(weak: self) { _, gyroData -> Observable<String> in
-        Observable.just(gyroData.x.rounded())
-      }
-      .bind(to: xValueLabel.rx.text)
-      .disposed(by: rx.disposeBag)
-    
-    gyroDataProvider?
-      .asObservable()
-      .flatMap(weak: self) { _, gyroData in
-        Observable.just(gyroData.y.rounded())
-      }
-      .bind(to: yValueLabel.rx.text)
-      .disposed(by: rx.disposeBag)
-    
-    gyroDataProvider?
-      .asObservable()
-      .flatMap(weak: self) { _, gyroData in
-        Observable.just(gyroData.z.rounded())
-      }
-      .bind(to: zValueLabel.rx.text)
-      .disposed(by: rx.disposeBag)
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    gyroDataProvider?
-      .asObservable()
-      .subscribeNext(weak: self, { (obj) -> (GyroData) -> Void in { gyroData in
-          obj.rotate(with: gyroData)
-        }
-      })
+    setupValueFields()
+    startRotation()
+    viewModel?.startGyroUpdates()
+  }
+  
+  private func startRotation() {
+    viewModel?.gyroDataProvider
+    .subscribeNext(weak: self, { (obj) -> (GyroData) -> Void in { gyroData in
+        obj.rotate(with: gyroData)
+      }
+    })
+    .disposed(by: rx.disposeBag)
+  }
+  
+  private func setupValueFields() {
+
+    viewModel?.gyroDataProvider
+      .map { gyroData in
+        gyroData.x.rounded()
+      }
+      .distinctUntilChanged()
+      .bind(to: xValueLabel.rx.animated.fade(duration: 0.15).text)
+      .disposed(by: rx.disposeBag)
+
+    viewModel?.gyroDataProvider
+      .map { gyroData in
+        gyroData.y.rounded()
+      }
+      .distinctUntilChanged()
+      .bind(to: yValueLabel.rx.animated.fade(duration: 0.15).text)
+      .disposed(by: rx.disposeBag)
+
+    viewModel?.gyroDataProvider
+      .map { gyroData in
+        gyroData.z.rounded()
+      }
+      .distinctUntilChanged()
+      .bind(to: zValueLabel.rx.animated.fade(duration: 0.15).text)
       .disposed(by: rx.disposeBag)
   }
   
