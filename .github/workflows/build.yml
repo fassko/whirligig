@@ -14,6 +14,7 @@ jobs:
       run: xcodebuild -resolvePackageDependencies
 
     - name: Build
-      env:
-        FASTLANE_EXPLICIT_OPEN_SIMULATOR : "2"
       run: set -o pipefail && xcodebuild -project Whirligig.xcodeproj -scheme Whirligig build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination "platform=iOS Simulator,name=iPhone 11 Pro" | xcpretty --color
+
+    - name: Test
+      run: fastlane test
