@@ -15,3 +15,12 @@ struct MotionData: Equatable {
   
   let rotationMatrix: RotationMatrix
 }
+
+extension MotionData {
+  static func mocked() -> Self {
+    MotionData(yaw: Double.random(in: -1...1),
+               pitch: Double.random(in: -1...1),
+               roll: Double.random(in: -1...1),
+               rotationMatrix: RotationMatrix.mocked())
+  }
+}

@@ -21,7 +21,7 @@ class MotionCoordinator: Coordinator {
     let motionViewController = MotionViewController.instantiate()
     
     motionViewController.viewModel = {
-      if CommandLine.mockGyroData {
+      if CommandLine.mockMotionData {
          return MotionViewModelMock()
       } else {
         return MotionViewModel()

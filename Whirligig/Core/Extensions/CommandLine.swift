@@ -9,8 +9,8 @@
 import Foundation
 
 extension CommandLine {
-  static var mockGyroData: Bool {
-    CommandLine.arguments.contains("-mockGyroData")
+  static var mockMotionData: Bool {
+    CommandLine.arguments.contains("-mockMotionData")
   }
   
   static var unitTests: Bool {

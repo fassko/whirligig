@@ -24,7 +24,7 @@ class WhirligigImageView: UIImageView {
       m21: CGFloat(rotationMatrix.m21), m22: CGFloat(rotationMatrix.m22), m23: CGFloat(rotationMatrix.m23), m24: 0,
       m31: CGFloat(rotationMatrix.m31), m32: CGFloat(rotationMatrix.m32), m33: CGFloat(rotationMatrix.m33), m34: 0,
       m41: 0, m42: 0, m43: 0, m44: 1)
-    
+
     layer.transform = transform
     setNeedsDisplay()
   }

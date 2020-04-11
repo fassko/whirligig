@@ -18,14 +18,13 @@ struct MotionViewModelTestMock: MotionViewModelProtocol {
     false
   }
   
+  private let testableMotionData: TestableObservable<MotionData>
   
-  private let testableGyroData: TestableObservable<MotionData>
-  
-  init(testableGyroData: TestableObservable<MotionData>) {
-    self.testableGyroData = testableGyroData
+  init(testableMotionData: TestableObservable<MotionData>) {
+    self.testableMotionData = testableMotionData
   }
   
   func motionUpdates() -> Observable<MotionData> {
-    testableGyroData.asObservable()
+    testableMotionData.asObservable()
   }
 }

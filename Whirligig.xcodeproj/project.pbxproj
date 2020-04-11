@@ -26,7 +26,6 @@
 		639154A82441CDE6001F328A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154A72441CDE6001F328A /* Constants.swift */; };
 		639154B62441E7B1001F328A /* Memoization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154B52441E7B1001F328A /* Memoization.swift */; };
 		639154BA2441FDC6001F328A /* RxSwift+CoreMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154B92441FDC6001F328A /* RxSwift+CoreMotion.swift */; };
-		639154BD24420250001F328A /* MotionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154BB24420249001F328A /* MotionData.swift */; };
 		63EA1E5424423383006767E5 /* MotionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA1E5324423383006767E5 /* MotionData.swift */; };
 		63EA57602440D76900F06F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA575F2440D76900F06F1B /* AppDelegate.swift */; };
 		63EA57642440D76900F06F1B /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA57632440D76900F06F1B /* MotionViewController.swift */; };
@@ -64,7 +63,6 @@
 		639154A72441CDE6001F328A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		639154B52441E7B1001F328A /* Memoization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memoization.swift; sourceTree = "<group>"; };
 		639154B92441FDC6001F328A /* RxSwift+CoreMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+CoreMotion.swift"; sourceTree = "<group>"; };
-		639154BB24420249001F328A /* MotionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionData.swift; sourceTree = "<group>"; };
 		63EA1E5324423383006767E5 /* MotionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionData.swift; sourceTree = "<group>"; };
 		63EA575C2440D76900F06F1B /* Whirligig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whirligig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EA575F2440D76900F06F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,11 +103,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63609E0E2442649000549040 /* MotionView */ = {
+			isa = PBXGroup;
+			children = (
+				63609E0F2442649F00549040 /* ViewModel */,
+				63609E10244264AC00549040 /* Views */,
+			);
+			path = MotionView;
+			sourceTree = "<group>";
+		};
+		63609E0F2442649F00549040 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				639154842440F2B8001F328A /* MotionViewModelProtocol.swift */,
+				639154792440E902001F328A /* MotionViewModel.swift */,
+				639154862440F431001F328A /* MotionViewModelMock.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		63609E10244264AC00549040 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63EA57632440D76900F06F1B /* MotionViewController.swift */,
+				63872C732442537400086C94 /* WhirligigImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6391547B2440EDFF001F328A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				63EA1E5324423383006767E5 /* MotionData.swift */,
 				63872C52244242D600086C94 /* RotationMatrix.swift */,
+				63EA1E5324423383006767E5 /* MotionData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,11 +205,7 @@
 				63EA575F2440D76900F06F1B /* AppDelegate.swift */,
 				63EA576D2440D76B00F06F1B /* Info.plist */,
 				63EA57852440D92700F06F1B /* Core */,
-				639154842440F2B8001F328A /* MotionViewModelProtocol.swift */,
-				639154792440E902001F328A /* MotionViewModel.swift */,
-				639154862440F431001F328A /* MotionViewModelMock.swift */,
-				63EA57632440D76900F06F1B /* MotionViewController.swift */,
-				63872C732442537400086C94 /* WhirligigImageView.swift */,
+				63609E0E2442649000549040 /* MotionView */,
 				639154A12441B862001F328A /* Interface */,
 			);
 			path = Whirligig;
@@ -195,7 +217,6 @@
 				6391549A244115DE001F328A /* WhirligigTests.xctestplan */,
 				639154A22441B9E0001F328A /* MotionViewModelTestMock.swift */,
 				63EA57762440D76B00F06F1B /* WhirligigTests.swift */,
-				639154BB24420249001F328A /* MotionData.swift */,
 				63EA57782440D76B00F06F1B /* Info.plist */,
 			);
 			path = whirligigTests;
@@ -376,7 +397,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				639154A42441BB2E001F328A /* MotionViewModelTestMock.swift in Sources */,
-				639154BD24420250001F328A /* MotionData.swift in Sources */,
 				63EA57772440D76B00F06F1B /* WhirligigTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

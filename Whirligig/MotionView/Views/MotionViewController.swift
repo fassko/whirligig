@@ -40,7 +40,9 @@ class MotionViewController: UIViewController, Storyboarded {
   }
   
   private func startRotation() {
-    viewModel?.motionUpdates().asObservable()
+    viewModel?
+      .motionUpdates()
+      .asObservable()
       .subscribe(weak: self, onNext: { obj -> (MotionData) -> Void in { motionData in
           obj.whirligigImageView.rotate(with: motionData)
         }
@@ -52,10 +54,12 @@ class MotionViewController: UIViewController, Storyboarded {
   }
   
   private func setupValueFields() {
-    let gyroUpdates = viewModel?.motionUpdates().asObservable()
+    let gyroUpdates = viewModel?
+      .motionUpdates()
+      .asObservable()
+      .ignoreErrors()
     
     gyroUpdates?
-      .ignoreErrors()
       .map { motionData in
         motionData.yaw.rounded()
       }
@@ -64,7 +68,6 @@ class MotionViewController: UIViewController, Storyboarded {
       .disposed(by: rx.disposeBag)
 
      gyroUpdates?
-      .ignoreErrors()
       .map { motionData in
         motionData.pitch.rounded()
       }
@@ -73,7 +76,6 @@ class MotionViewController: UIViewController, Storyboarded {
       .disposed(by: rx.disposeBag)
 
     gyroUpdates?
-      .ignoreErrors()
       .map { motionData in
         motionData.roll.rounded()
       }

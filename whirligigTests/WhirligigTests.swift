@@ -19,34 +19,34 @@ class WhirligigTests: XCTestCase {
   func testMotionData() {
     let scheduler = TestScheduler(initialClock: 0)
 
-    let gyroDataFirst = MotionData.mocked()
-    let gyroDataSecond = MotionData.mocked()
-    let gyroDataThird = MotionData.mocked()
+    let motionDataFirst = MotionData.mocked()
+    let motionDataSecond = MotionData.mocked()
+    let motionDataThird = MotionData.mocked()
 
     let expectedEvents: [Recorded<Event<MotionData>>] = [
-      Recorded.next(200, gyroDataFirst),
-      Recorded.next(400, gyroDataSecond),
-      Recorded.next(600, gyroDataThird)
+      Recorded.next(200, motionDataFirst),
+      Recorded.next(400, motionDataSecond),
+      Recorded.next(600, motionDataThird)
     ]
 
-    let gyroDataObservable = scheduler.createHotObservable([
-      Recorded.next(200, gyroDataFirst),
-      Recorded.next(400, gyroDataSecond),
-      Recorded.next(600, gyroDataThird)
+    let motionDataObservable = scheduler.createHotObservable([
+      Recorded.next(200, motionDataFirst),
+      Recorded.next(400, motionDataSecond),
+      Recorded.next(600, motionDataThird)
     ])
 
-    let viewModel: MotionViewModelProtocol = MotionViewModelTestMock(testableGyroData: gyroDataObservable)
+    let viewModel: MotionViewModelProtocol = MotionViewModelTestMock(testableMotionData: motionDataObservable)
 
-    let gyroDataObserver = scheduler.createObserver(MotionData.self)
+    let motionDataObserver = scheduler.createObserver(MotionData.self)
     scheduler.scheduleAt(0) {
       viewModel.motionUpdates()
         .asObservable()
-        .subscribe(gyroDataObserver)
+        .subscribe(motionDataObserver)
         .disposed(by: self.disposeBag)
     }
     scheduler.start()
 
-    XCTAssertEqual(gyroDataObserver.events, expectedEvents)
+    XCTAssertEqual(motionDataObserver.events, expectedEvents)
   }
   
   func testMotionDataError() {
@@ -57,19 +57,19 @@ class WhirligigTests: XCTestCase {
     ]
 
     let events: [Recorded<Event<MotionData>>] = [.error(100, MotionError.notAvailable)]
-    let gyroDataObservable = scheduler.createHotObservable(events)
+    let motionDataObservable = scheduler.createHotObservable(events)
 
-    let viewModel: MotionViewModelProtocol = MotionViewModelTestMock(testableGyroData: gyroDataObservable)
+    let viewModel: MotionViewModelProtocol = MotionViewModelTestMock(testableMotionData: motionDataObservable)
 
-    let gyroDataObserver = scheduler.createObserver(MotionData.self)
+    let motionDataObserver = scheduler.createObserver(MotionData.self)
     scheduler.scheduleAt(0) {
       viewModel.motionUpdates()
         .asObservable()
-        .subscribe(gyroDataObserver)
+        .subscribe(motionDataObserver)
         .disposed(by: self.disposeBag)
     }
     scheduler.start()
 
-    XCTAssertEqual(gyroDataObserver.events, expectedEvents)
+    XCTAssertEqual(motionDataObserver.events, expectedEvents)
   }
 }
