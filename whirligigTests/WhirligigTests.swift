@@ -16,7 +16,7 @@ import RxTest
 class WhirligigTests: XCTestCase {
   let disposeBag = DisposeBag()
   
-  func testMock() {
+  func testGyroData() {
     let scheduler = TestScheduler(initialClock: 0)
     
     let gyroDataFirst = GyroData.mocked()
