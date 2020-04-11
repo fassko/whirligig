@@ -11,9 +11,6 @@ import Foundation
 import RxSwift
 
 struct MotionViewModelMock: MotionViewModelProtocol {
-  var xValue = PublishSubject<String>()
-  var yValue = PublishSubject<String>()
-  var zValue = PublishSubject<String>()
   
   var gyroDataProvider = PublishSubject<GyroData>()
   
@@ -23,10 +20,6 @@ struct MotionViewModelMock: MotionViewModelProtocol {
       let y = Double.random(in: -1...1)
       let z = Double.random(in: -1...1)
       let gyroData = GyroData(x: x, y: y, z: z, pitch: Double.random(in: -1...1))
-      
-      self.xValue.on(.next(String(x)))
-      self.yValue.on(.next(String(y)))
-      self.zValue.on(.next(String(z)))
       
       self.gyroDataProvider.on(.next(gyroData))
     }

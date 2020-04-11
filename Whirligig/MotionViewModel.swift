@@ -14,10 +14,6 @@ import RxSwift
 struct MotionViewModel: MotionViewModelProtocol {
   var gyroDataProvider = PublishSubject<GyroData>()
   
-  var xValue = PublishSubject<String>()
-  var yValue = PublishSubject<String>()
-  var zValue = PublishSubject<String>()
-  
   private let motionManager = CMMotionManager()
   private let motionUpdateQueue = OperationQueue.current
   
@@ -28,17 +24,6 @@ struct MotionViewModel: MotionViewModelProtocol {
   }
   
   func startGyroUpdates() {
-    gyroDataProvider.asObservable()
-    .subscribe(onNext: { gyroData in
-      self.xValue.on(.next(String(gyroData.x)))
-      self.yValue.on(.next(String(gyroData.y)))
-      self.zValue.on(.next(String(gyroData.z)))
-    }, onError: { error in
-      self.xValue.on(.error(error))
-      self.yValue.on(.error(error))
-      self.zValue.on(.error(error))
-    })
-    .disposed(by: disposeBag)
     
     motionManager.startDeviceMotionUpdates(to: .main) { data, error in
       if let error = error {

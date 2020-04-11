@@ -17,6 +17,7 @@
 		6391548E24411535001F328A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6391548D24411535001F328A /* RxCocoa */; };
 		639154932441155A001F328A /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 639154922441155A001F328A /* RxBlocking */; };
 		639154992441155A001F328A /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 639154982441155A001F328A /* RxTest */; };
+		6391549C24419FCE001F328A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391549B24419FCE001F328A /* Extensions.swift */; };
 		63EA57602440D76900F06F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA575F2440D76900F06F1B /* AppDelegate.swift */; };
 		63EA57642440D76900F06F1B /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA57632440D76900F06F1B /* MotionViewController.swift */; };
 		63EA57672440D76900F06F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63EA57652440D76900F06F1B /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		639154842440F2B8001F328A /* MotionViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelProtocol.swift; sourceTree = "<group>"; };
 		639154862440F431001F328A /* MotionViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelMock.swift; sourceTree = "<group>"; };
 		6391549A244115DE001F328A /* Whirligig.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Whirligig.xctestplan; sourceTree = "<group>"; };
+		6391549B24419FCE001F328A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		63EA575C2440D76900F06F1B /* Whirligig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whirligig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EA575F2440D76900F06F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63EA57632440D76900F06F1B /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				63EA57832440D91200F06F1B /* Storyboarded.swift */,
 				63EA57862440D93A00F06F1B /* Coordinator.swift */,
 				63EA57882440D9A400F06F1B /* MotionCoordinator.swift */,
+				6391549B24419FCE001F328A /* Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				63EA57642440D76900F06F1B /* MotionViewController.swift in Sources */,
 				63EA57602440D76900F06F1B /* AppDelegate.swift in Sources */,
 				63EA57892440D9A400F06F1B /* MotionCoordinator.swift in Sources */,
+				6391549C24419FCE001F328A /* Extensions.swift in Sources */,
 				639154852440F2B8001F328A /* MotionViewModelProtocol.swift in Sources */,
 				6391547D2440EE74001F328A /* GyroData.swift in Sources */,
 				6391547A2440E902001F328A /* MotionViewModel.swift in Sources */,

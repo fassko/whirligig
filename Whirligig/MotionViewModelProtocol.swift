@@ -11,9 +11,6 @@ import Foundation
 import RxSwift
 
 protocol MotionViewModelProtocol {
-  var xValue: PublishSubject<String> { get }
-  var yValue: PublishSubject<String> { get }
-  var zValue: PublishSubject<String> { get }
   
   var gyroDataProvider: PublishSubject<GyroData> { get }
   

@@ -8,6 +8,7 @@
 
 import UIKit
 
+import RxSwift
 import RxCocoa
 import RxSwiftExt
 import NSObject_Rx
@@ -31,16 +32,31 @@ class MotionViewController: UIViewController, Storyboarded {
     
     viewModel?.startGyroUpdates()
     
-    viewModel?.xValue.asObservable()
-      .bind(to: self.xValueLabel.rx.text)
+    viewModel?
+      .gyroDataProvider
+      .asObservable()
+      .flatMap(weak: self) { _, gyroData in
+        Observable.just(String(gyroData.x))
+      }
+      .bind(to: xValueLabel.rx.text)
       .disposed(by: rx.disposeBag)
     
-    viewModel?.yValue.asObservable()
-      .bind(to: self.yValueLabel.rx.text)
+    viewModel?
+      .gyroDataProvider
+      .asObservable()
+      .flatMap(weak: self) { _, gyroData in
+        Observable.just(String(gyroData.y))
+      }
+      .bind(to: yValueLabel.rx.text)
       .disposed(by: rx.disposeBag)
     
-    viewModel?.zValue.asObservable()
-      .bind(to: self.zValueLabel.rx.text)
+    viewModel?
+      .gyroDataProvider
+      .asObservable()
+      .flatMap(weak: self) { _, gyroData in
+        Observable.just(String(gyroData.z))
+      }
+      .bind(to: zValueLabel.rx.text)
       .disposed(by: rx.disposeBag)
   }
   
