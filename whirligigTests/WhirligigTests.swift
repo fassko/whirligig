@@ -40,20 +40,12 @@ class WhirligigTests: XCTestCase {
     let gyroDataObserver = scheduler.createObserver(GyroData.self)
     scheduler.scheduleAt(0) {
       viewModel.gyroUpdates()
-      .asObservable()
-      .subscribe(gyroDataObserver)
-      .disposed(by: self.disposeBag)
+        .asObservable()
+        .subscribe(gyroDataObserver)
+        .disposed(by: self.disposeBag)
     }
     scheduler.start()
-
+    
     XCTAssertEqual(gyroDataObserver.events, expectedEvents)
-  }
-}
-
-extension GyroData {
-  static func mocked() -> Self {
-    GyroData(x: Double.random(in: 0...1),
-             y: Double.random(in: 0...1),
-             z: Double.random(in: 0...1))
   }
 }
