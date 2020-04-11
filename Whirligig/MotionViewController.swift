@@ -15,13 +15,15 @@ import NSObject_Rx
 
 class MotionViewController: UIViewController, Storyboarded {
   
-  var viewModel: MotionViewModelProtocol?
-  
   @IBOutlet weak var xValueLabel: UILabel!
   @IBOutlet weak var yValueLabel: UILabel!
   @IBOutlet weak var zValueLabel: UILabel!
   
   @IBOutlet weak var whirligigImageView: UIImageView!
+  
+  var viewModel: MotionViewModelProtocol?
+  
+  private var gyroDataProvider: Observable<GyroData>?
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -30,31 +32,28 @@ class MotionViewController: UIViewController, Storyboarded {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    viewModel?.startGyroUpdates()
+    gyroDataProvider = viewModel?.gyroUpdates()
     
-    viewModel?
-      .gyroDataProvider
+    gyroDataProvider?
       .asObservable()
-      .flatMap(weak: self) { _, gyroData in
-        Observable.just(String(gyroData.x))
+      .flatMap(weak: self) { _, gyroData -> Observable<String> in
+        Observable.just(gyroData.x.rounded())
       }
       .bind(to: xValueLabel.rx.text)
       .disposed(by: rx.disposeBag)
     
-    viewModel?
-      .gyroDataProvider
+    gyroDataProvider?
       .asObservable()
       .flatMap(weak: self) { _, gyroData in
-        Observable.just(String(gyroData.y))
+        Observable.just(gyroData.y.rounded())
       }
       .bind(to: yValueLabel.rx.text)
       .disposed(by: rx.disposeBag)
     
-    viewModel?
-      .gyroDataProvider
+    gyroDataProvider?
       .asObservable()
       .flatMap(weak: self) { _, gyroData in
-        Observable.just(String(gyroData.z))
+        Observable.just(gyroData.z.rounded())
       }
       .bind(to: zValueLabel.rx.text)
       .disposed(by: rx.disposeBag)
@@ -63,8 +62,7 @@ class MotionViewController: UIViewController, Storyboarded {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    viewModel?
-      .gyroDataProvider
+    gyroDataProvider?
       .asObservable()
       .subscribeNext(weak: self, { (obj) -> (GyroData) -> Void in { gyroData in
           obj.rotate(with: gyroData)

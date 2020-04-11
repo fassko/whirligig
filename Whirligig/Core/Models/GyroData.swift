@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct GyroData {
+struct GyroData: Equatable {
   let x: Double
   let y: Double
   let z: Double
-  
-  let pitch: Double
 }

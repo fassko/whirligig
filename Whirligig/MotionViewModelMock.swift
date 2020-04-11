@@ -11,17 +11,18 @@ import Foundation
 import RxSwift
 
 struct MotionViewModelMock: MotionViewModelProtocol {
-  
-  var gyroDataProvider = PublishSubject<GyroData>()
-  
-  func startGyroUpdates() {
-    Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
-      let x = Double.random(in: -1...1)
-      let y = Double.random(in: -1...1)
-      let z = Double.random(in: -1...1)
-      let gyroData = GyroData(x: x, y: y, z: z, pitch: Double.random(in: -1...1))
+  func gyroUpdates() -> Observable<GyroData> {
+    Observable<GyroData>.create { observer in
+      Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
+        let x = Double.random(in: -1...1)
+        let y = Double.random(in: -1...1)
+        let z = Double.random(in: -1...1)
+        let gyroData = GyroData(x: x, y: y, z: z)
+        
+        observer.onNext(gyroData)
+      }
       
-      self.gyroDataProvider.on(.next(gyroData))
+      return Disposables.create()
     }
   }
 }

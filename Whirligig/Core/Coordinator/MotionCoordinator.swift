@@ -20,13 +20,14 @@ class MotionCoordinator: Coordinator {
   func start() {
     let motionViewController = MotionViewController.instantiate()
     
-    if CommandLine.arguments.contains("-mockGyroData") {
-      motionViewController.viewModel = MotionViewModelMock()
-    } else {
-      motionViewController.viewModel = MotionViewModel()
-    }
+    motionViewController.viewModel = {
+      if CommandLine.mockGyroData {
+         return MotionViewModelMock()
+      } else {
+        return MotionViewModel()
+      }
+    }()
     
     window?.rootViewController = motionViewController
   }
-  
 }
