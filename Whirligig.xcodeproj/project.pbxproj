@@ -56,7 +56,7 @@
 		639154792440E902001F328A /* MotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModel.swift; sourceTree = "<group>"; };
 		639154842440F2B8001F328A /* MotionViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelProtocol.swift; sourceTree = "<group>"; };
 		639154862440F431001F328A /* MotionViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelMock.swift; sourceTree = "<group>"; };
-		6391549A244115DE001F328A /* Whirligig.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Whirligig.xctestplan; sourceTree = "<group>"; };
+		6391549A244115DE001F328A /* WhirligigTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WhirligigTests.xctestplan; sourceTree = "<group>"; };
 		6391549B24419FCE001F328A /* RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwift.swift; sourceTree = "<group>"; };
 		6391549D2441B804001F328A /* CommandLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLine.swift; sourceTree = "<group>"; };
 		639154A22441B9E0001F328A /* MotionViewModelTestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModelTestMock.swift; sourceTree = "<group>"; };
@@ -192,6 +192,7 @@
 		63EA57752440D76B00F06F1B /* whirligigTests */ = {
 			isa = PBXGroup;
 			children = (
+				6391549A244115DE001F328A /* WhirligigTests.xctestplan */,
 				639154A22441B9E0001F328A /* MotionViewModelTestMock.swift */,
 				63EA57762440D76B00F06F1B /* WhirligigTests.swift */,
 				639154BB24420249001F328A /* MotionData.swift */,
@@ -203,7 +204,6 @@
 		63EA57852440D92700F06F1B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				6391549A244115DE001F328A /* Whirligig.xctestplan */,
 				6391547B2440EDFF001F328A /* Models */,
 				639154A02441B835001F328A /* Coordinator */,
 				6391549F2441B81D001F328A /* Extensions */,
