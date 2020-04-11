@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63609E1424427D1500549040 /* RxAnimated in Frameworks */ = {isa = PBXBuildFile; productRef = 63609E1324427D1500549040 /* RxAnimated */; };
 		63872C53244242D600086C94 /* RotationMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63872C52244242D600086C94 /* RotationMatrix.swift */; };
 		63872C582442452000086C94 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 63872C572442452000086C94 /* RxCocoa */; };
 		63872C5A2442452000086C94 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63872C592442452000086C94 /* RxSwift */; };
-		63872C7024424F1E00086C94 /* RxAnimated in Frameworks */ = {isa = PBXBuildFile; productRef = 63872C6F24424F1E00086C94 /* RxAnimated */; };
 		63872C7224424F8200086C94 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 63872C7124424F8200086C94 /* RxTest */; };
 		63872C742442537400086C94 /* WhirligigImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63872C732442537400086C94 /* WhirligigImageView.swift */; };
 		63872C76244253E800086C94 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63872C75244253E800086C94 /* UIViewController.swift */; };
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63872C7024424F1E00086C94 /* RxAnimated in Frameworks */,
+				63609E1424427D1500549040 /* RxAnimated in Frameworks */,
 				639154802440F1AF001F328A /* RxSwiftExt in Frameworks */,
 				63872C5A2442452000086C94 /* RxSwift in Frameworks */,
 				63872C582442452000086C94 /* RxCocoa in Frameworks */,
@@ -255,7 +255,7 @@
 				639154822440F21E001F328A /* NSObject-Rx */,
 				63872C572442452000086C94 /* RxCocoa */,
 				63872C592442452000086C94 /* RxSwift */,
-				63872C6F24424F1E00086C94 /* RxAnimated */,
+				63609E1324427D1500549040 /* RxAnimated */,
 			);
 			productName = whirligig;
 			productReference = 63EA575C2440D76900F06F1B /* Whirligig.app */;
@@ -314,7 +314,7 @@
 				6391547E2440F1AF001F328A /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				639154812440F21E001F328A /* XCRemoteSwiftPackageReference "NSObject-Rx" */,
 				63872C562442452000086C94 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				63872C6E24424F1E00086C94 /* XCRemoteSwiftPackageReference "rxanimated" */,
+				63609E1224427D1500549040 /* XCRemoteSwiftPackageReference "RxAnimated" */,
 			);
 			productRefGroup = 63EA575D2440D76900F06F1B /* Products */;
 			projectDirPath = "";
@@ -660,20 +660,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		63609E1224427D1500549040 /* XCRemoteSwiftPackageReference "RxAnimated" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAnimated";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
 		63872C562442452000086C94 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.1.1;
-			};
-		};
-		63872C6E24424F1E00086C94 /* XCRemoteSwiftPackageReference "rxanimated" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fassko/rxanimated";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 		6391547E2440F1AF001F328A /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
@@ -689,12 +689,17 @@
 			repositoryURL = "https://github.com/RxSwiftCommunity/NSObject-Rx";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.3;
+				minimumVersion = 5.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		63609E1324427D1500549040 /* RxAnimated */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63609E1224427D1500549040 /* XCRemoteSwiftPackageReference "RxAnimated" */;
+			productName = RxAnimated;
+		};
 		63872C572442452000086C94 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63872C562442452000086C94 /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -704,11 +709,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63872C562442452000086C94 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		63872C6F24424F1E00086C94 /* RxAnimated */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63872C6E24424F1E00086C94 /* XCRemoteSwiftPackageReference "rxanimated" */;
-			productName = RxAnimated;
 		};
 		63872C7124424F8200086C94 /* RxTest */ = {
 			isa = XCSwiftPackageProductDependency;
