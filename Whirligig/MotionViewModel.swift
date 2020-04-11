@@ -14,7 +14,11 @@ import RxSwift
 struct MotionViewModel: MotionViewModelProtocol {
   private let motionManager = CMMotionManager()
   
-  func gyroUpdates() -> Observable<GyroData> {
+  var isAccelerometerAvailable: Bool {
+    motionManager.isAccelerometerAvailable
+  }
+  
+  func motionUpdates() -> Observable<MotionData> {
     motionManager.rx.acceleration
   }
 }

@@ -11,5 +11,7 @@ import Foundation
 import RxSwift
 
 protocol MotionViewModelProtocol {
-  func gyroUpdates() -> Observable<GyroData>
+  var isAccelerometerAvailable: Bool { get }
+  
+  func motionUpdates() -> Observable<MotionData>
 }

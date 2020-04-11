@@ -16,36 +16,60 @@ import RxTest
 class WhirligigTests: XCTestCase {
   let disposeBag = DisposeBag()
   
-  func testGyroData() {
+  func testMotionData() {
     let scheduler = TestScheduler(initialClock: 0)
-    
-    let gyroDataFirst = GyroData.mocked()
-    let gyroDataSecond = GyroData.mocked()
-    let gyroDataThird = GyroData.mocked()
-    
-    let expectedEvents: [Recorded<Event<GyroData>>] = [
+
+    let gyroDataFirst = MotionData.mocked()
+    let gyroDataSecond = MotionData.mocked()
+    let gyroDataThird = MotionData.mocked()
+
+    let expectedEvents: [Recorded<Event<MotionData>>] = [
       Recorded.next(200, gyroDataFirst),
       Recorded.next(400, gyroDataSecond),
       Recorded.next(600, gyroDataThird)
     ]
-    
+
     let gyroDataObservable = scheduler.createHotObservable([
       Recorded.next(200, gyroDataFirst),
       Recorded.next(400, gyroDataSecond),
       Recorded.next(600, gyroDataThird)
     ])
-    
+
     let viewModel: MotionViewModelProtocol = MotionViewModelTestMock(testableGyroData: gyroDataObservable)
-    
-    let gyroDataObserver = scheduler.createObserver(GyroData.self)
+
+    let gyroDataObserver = scheduler.createObserver(MotionData.self)
     scheduler.scheduleAt(0) {
-      viewModel.gyroUpdates()
+      viewModel.motionUpdates()
         .asObservable()
         .subscribe(gyroDataObserver)
         .disposed(by: self.disposeBag)
     }
     scheduler.start()
-    
+
+    XCTAssertEqual(gyroDataObserver.events, expectedEvents)
+  }
+  
+  func testMotionDataError() {
+    let scheduler = TestScheduler(initialClock: 0)
+
+    let expectedEvents: [Recorded<Event<MotionData>>] = [
+      Recorded.error(100, MotionError.notAvailable)
+    ]
+
+    let events: [Recorded<Event<MotionData>>] = [.error(100, MotionError.notAvailable)]
+    let gyroDataObservable = scheduler.createHotObservable(events)
+
+    let viewModel: MotionViewModelProtocol = MotionViewModelTestMock(testableGyroData: gyroDataObservable)
+
+    let gyroDataObserver = scheduler.createObserver(MotionData.self)
+    scheduler.scheduleAt(0) {
+      viewModel.motionUpdates()
+        .asObservable()
+        .subscribe(gyroDataObserver)
+        .disposed(by: self.disposeBag)
+    }
+    scheduler.start()
+
     XCTAssertEqual(gyroDataObserver.events, expectedEvents)
   }
 }

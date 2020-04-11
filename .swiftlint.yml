@@ -2,11 +2,50 @@ included:
   - whirligig
   - whirligigTests
 
-identifier_name:
-  excluded:
-    - x
-    - y
-    - z
+opt_in_rules:
+  - weak_delegate
+  - empty_count
+  - redundant_nil_coalescing
+  - switch_case_on_newline
+  - force_unwrapping
+  - conditional_returns_on_newline
+  - closure_spacing
+  - implicitly_unwrapped_optional
+  - valid_docs
+  - explicit_init
+  - first_where
+  - operator_usage_whitespace
+  - overridden_super_call
+  - private_outlet
+  - prohibited_super_call
+  - anyobject_protocol
+  - closure_end_indentation
+  - collection_alignment
+  - yoda_condition
+  - contains_over_first_not_nil
+  - empty_string
+  - empty_xctest_method
+  - fallthrough
+  - fatal_error_message
+  - identical_operands
+  - joined_default_parameter
+  - let_var_whitespace
+  - literal_expression_end_indentation
+  - lower_acl_than_parent
+  - object_literal
+  - override_in_extension
+  - pattern_matching_keywords
+  - private_action
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
+  - redundant_type_annotation
+  - single_test_class
+  - sorted_first_last
+  - sorted_imports
+  - static_operator
+  - unneeded_parentheses_in_closure_argument
+  - untyped_error_in_catch
+  - vertical_parameter_alignment_on_call
 
 disabled_rules:
   - trailing_whitespace

@@ -8,10 +8,10 @@
 
 import Foundation
 
-import RxSwift
 import RxCocoa
+import RxSwift
 
-public protocol Memoization: class { }
+public protocol Memoization: AnyObject { }
 extension NSObject: Memoization { }
 
 extension Memoization {
@@ -46,7 +46,7 @@ extension Reactive {
   }
 }
 
-fileprivate func _memoize<T>(_ object: Any, key: UnsafeRawPointer, lazyCreateClosure: () -> T) -> T {
+private func _memoize<T>(_ object: Any, key: UnsafeRawPointer, lazyCreateClosure: () -> T) -> T {
   objc_sync_enter(object); defer { objc_sync_exit(object) }
   if let instance = objc_getAssociatedObject(object, key) as? T {
     return instance

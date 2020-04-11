@@ -14,14 +14,18 @@ import RxSwift
 import RxTest
 
 struct MotionViewModelTestMock: MotionViewModelProtocol {
+  var isAccelerometerAvailable: Bool {
+    false
+  }
   
-  private let testableGyroData: TestableObservable<GyroData>
   
-  init(testableGyroData: TestableObservable<GyroData>) {
+  private let testableGyroData: TestableObservable<MotionData>
+  
+  init(testableGyroData: TestableObservable<MotionData>) {
     self.testableGyroData = testableGyroData
   }
   
-  func gyroUpdates() -> Observable<GyroData> {
+  func motionUpdates() -> Observable<MotionData> {
     testableGyroData.asObservable()
   }
 }

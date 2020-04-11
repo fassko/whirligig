@@ -8,78 +8,77 @@
 
 import UIKit
 
-import RxSwift
-import RxCocoa
-import RxSwiftExt
 import NSObject_Rx
 import RxAnimated
+import RxCocoa
+import RxSwift
+import RxSwiftExt
 
 class MotionViewController: UIViewController, Storyboarded {
   
-  @IBOutlet weak var xValueLabel: UILabel!
-  @IBOutlet weak var yValueLabel: UILabel!
-  @IBOutlet weak var zValueLabel: UILabel!
+  @IBOutlet private weak var yawValueLabel: UILabel!
+  @IBOutlet private weak var pitchValueLabel: UILabel!
+  @IBOutlet private weak var rollValueLabel: UILabel!
   
-  @IBOutlet weak var whirligigImageView: UIImageView!
+  @IBOutlet private weak var whirligigImageView: WhirligigImageView!
   
   var viewModel: MotionViewModelProtocol?
-  
+
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    setupValueFields()
+    guard viewModel?.isAccelerometerAvailable ?? false else {
+      return
+    }
+    
     startRotation()
+    setupValueFields()
   }
   
   private func startRotation() {
-    
-    viewModel?.gyroUpdates().asObservable()
-    .subscribeNext(weak: self) { obj -> (GyroData) -> Void in { gyroData in
-        obj.rotate(with: gyroData)
-      }
-    }
-    .disposed(by: rx.disposeBag)
+    viewModel?.motionUpdates().asObservable()
+      .subscribe(weak: self, onNext: { obj -> (MotionData) -> Void in { motionData in
+          obj.whirligigImageView.rotate(with: motionData)
+        }
+      }, onError: { obj -> (Error) -> Void in { error in
+          obj.showError(with: error)
+        }
+      })
+      .disposed(by: rx.disposeBag)
   }
   
   private func setupValueFields() {
-    let gyroUpdates = viewModel?.gyroUpdates().asObservable()
+    let gyroUpdates = viewModel?.motionUpdates().asObservable()
     
     gyroUpdates?
-      .map { gyroData in
-        gyroData.x.rounded()
+      .ignoreErrors()
+      .map { motionData in
+        motionData.yaw.rounded()
       }
       .distinctUntilChanged()
-      .bind(to: xValueLabel.rx.animated.fade(duration: 0.15).text)
+      .bind(animated: yawValueLabel.rx.animated.fade(duration: 0.15).text)
       .disposed(by: rx.disposeBag)
-    
+
      gyroUpdates?
-      .map { gyroData in
-        gyroData.y.rounded()
+      .ignoreErrors()
+      .map { motionData in
+        motionData.pitch.rounded()
       }
       .distinctUntilChanged()
-      .bind(to: yValueLabel.rx.animated.fade(duration: 0.15).text)
+      .bind(to: pitchValueLabel.rx.animated.fade(duration: 0.15).text)
       .disposed(by: rx.disposeBag)
 
     gyroUpdates?
-      .map { gyroData in
-        gyroData.z.rounded()
+      .ignoreErrors()
+      .map { motionData in
+        motionData.roll.rounded()
       }
       .distinctUntilChanged()
-      .bind(to: zValueLabel.rx.animated.fade(duration: 0.15).text)
+      .bind(to: rollValueLabel.rx.animated.fade(duration: 0.15).text)
       .disposed(by: rx.disposeBag)
-  }
-  
-  private func rotate(with gyroData: GyroData) {
-    let rotation = CGFloat(atan2(gyroData.x, gyroData.y) - .pi)
-    whirligigImageView?.transform = CGAffineTransform(rotationAngle: rotation)
   }
 }
