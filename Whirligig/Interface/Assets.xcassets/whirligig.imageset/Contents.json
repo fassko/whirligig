@@ -3,6 +3,16 @@
     {
       "filename" : "whirligig.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "whirligig-dark.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
