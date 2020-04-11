@@ -11,19 +11,17 @@ import Foundation
 @testable import Whirligig
 
 import RxSwift
+import RxTest
 
 struct MotionViewModelTestMock: MotionViewModelProtocol {
-  var gyroDataProvider = PublishSubject<GyroData>()
   
-  private let gyroData: [GyroData]
+  private let testableGyroData: TestableObservable<GyroData>
   
-  init(gyroData: [GyroData]) {
-    self.gyroData = gyroData
+  init(testableGyroData: TestableObservable<GyroData>) {
+    self.testableGyroData = testableGyroData
   }
   
-  func startGyroUpdates() {
-    gyroData.forEach {
-      gyroDataProvider.on(.next($0))
-    }
+  func gyroUpdates() -> Observable<GyroData> {
+    testableGyroData.asObservable()
   }
 }

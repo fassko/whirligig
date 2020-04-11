@@ -11,24 +11,42 @@ import XCTest
 @testable import Whirligig
 
 import RxSwift
+import RxTest
 
 class WhirligigTests: XCTestCase {
   let disposeBag = DisposeBag()
   
-  func testGyroData() throws {
-    let recorder = Recorder<GyroData>()
-    let gyroDataMocks: [GyroData] = [
-      .mocked(),
-      .mocked(),
-      .mocked()
+  func testMock() {
+    let scheduler = TestScheduler(initialClock: 0)
+    
+    let gyroDataFirst = GyroData.mocked()
+    let gyroDataSecond = GyroData.mocked()
+    let gyroDataThird = GyroData.mocked()
+    
+    let expectedEvents: [Recorded<Event<GyroData>>] = [
+      Recorded.next(200, gyroDataFirst),
+      Recorded.next(400, gyroDataSecond),
+      Recorded.next(600, gyroDataThird)
     ]
-    let viewModel = MotionViewModelTestMock(gyroData: gyroDataMocks)
     
-    recorder.on(valueSubject: viewModel.gyroDataProvider)
-    viewModel.startGyroUpdates()
+    let gyroDataObservable = scheduler.createHotObservable([
+      Recorded.next(200, gyroDataFirst),
+      Recorded.next(400, gyroDataSecond),
+      Recorded.next(600, gyroDataThird)
+    ])
     
-    waitOrFail(timeout: 1)
-    XCTAssertEqual(recorder.items, gyroDataMocks)
+    let viewModel: MotionViewModelProtocol = MotionViewModelTestMock(testableGyroData: gyroDataObservable)
+    
+    let gyroDataObserver = scheduler.createObserver(GyroData.self)
+    scheduler.scheduleAt(0) {
+      viewModel.gyroUpdates()
+      .asObservable()
+      .subscribe(gyroDataObserver)
+      .disposed(by: self.disposeBag)
+    }
+    scheduler.start()
+
+    XCTAssertEqual(gyroDataObserver.events, expectedEvents)
   }
 }
 
@@ -37,34 +55,5 @@ extension GyroData {
     GyroData(x: Double.random(in: 0...1),
              y: Double.random(in: 0...1),
              z: Double.random(in: 0...1))
-  }
-}
-
-extension XCTestCase {
-  func waitOrFail(timeout: TimeInterval) {
-    let expectation = self.expectation(description: #function)
-    
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + timeout, execute: {
-      expectation.fulfill()
-    })
-    
-    wait(for: [expectation], timeout: timeout + 2)
-  }
-}
-
-class Recorder<T> {
-  var items = [T]()
-  let bag = DisposeBag()
-  
-  func on(arraySubject: PublishSubject<[T]>) {
-    arraySubject.subscribe(onNext: { value in
-      self.items = value
-    }).disposed(by: bag)
-  }
-  
-  func on(valueSubject: PublishSubject<T>) {
-    valueSubject.subscribe(onNext: { value in
-      self.items.append(value)
-    }).disposed(by: bag)
   }
 }

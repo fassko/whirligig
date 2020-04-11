@@ -11,7 +11,5 @@ import Foundation
 import RxSwift
 
 protocol MotionViewModelProtocol {
-  var gyroDataProvider: PublishSubject<GyroData> { get }
-  
-  func startGyroUpdates()
+  func gyroUpdates() -> Observable<GyroData>
 }

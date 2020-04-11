@@ -38,29 +38,30 @@ class MotionViewController: UIViewController, Storyboarded {
     
     setupValueFields()
     startRotation()
-    viewModel?.startGyroUpdates()
   }
   
   private func startRotation() {
-    viewModel?.gyroDataProvider
-    .subscribeNext(weak: self, { (obj) -> (GyroData) -> Void in { gyroData in
+    
+    viewModel?.gyroUpdates().asObservable()
+    .subscribeNext(weak: self) { obj -> (GyroData) -> Void in { gyroData in
         obj.rotate(with: gyroData)
       }
-    })
+    }
     .disposed(by: rx.disposeBag)
   }
   
   private func setupValueFields() {
-
-    viewModel?.gyroDataProvider
+    let gyroUpdates = viewModel?.gyroUpdates().asObservable()
+    
+    gyroUpdates?
       .map { gyroData in
         gyroData.x.rounded()
       }
       .distinctUntilChanged()
       .bind(to: xValueLabel.rx.animated.fade(duration: 0.15).text)
       .disposed(by: rx.disposeBag)
-
-    viewModel?.gyroDataProvider
+    
+     gyroUpdates?
       .map { gyroData in
         gyroData.y.rounded()
       }
@@ -68,7 +69,7 @@ class MotionViewController: UIViewController, Storyboarded {
       .bind(to: yValueLabel.rx.animated.fade(duration: 0.15).text)
       .disposed(by: rx.disposeBag)
 
-    viewModel?.gyroDataProvider
+    gyroUpdates?
       .map { gyroData in
         gyroData.z.rounded()
       }
