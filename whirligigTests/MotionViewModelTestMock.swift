@@ -11,7 +11,6 @@ import Foundation
 @testable import Whirligig
 
 import RxSwift
-import RxTest
 
 struct MotionViewModelTestMock: MotionViewModelProtocol {
   var gyroDataProvider = PublishSubject<GyroData>()

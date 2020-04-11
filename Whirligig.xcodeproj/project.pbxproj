@@ -15,8 +15,6 @@
 		639154872440F431001F328A /* MotionViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154862440F431001F328A /* MotionViewModelMock.swift */; };
 		6391548A24411535001F328A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6391548924411535001F328A /* RxSwift */; };
 		6391548E24411535001F328A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6391548D24411535001F328A /* RxCocoa */; };
-		639154932441155A001F328A /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 639154922441155A001F328A /* RxBlocking */; };
-		639154992441155A001F328A /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 639154982441155A001F328A /* RxTest */; };
 		6391549C24419FCE001F328A /* RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391549B24419FCE001F328A /* RxSwift.swift */; };
 		6391549E2441B804001F328A /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391549D2441B804001F328A /* CommandLine.swift */; };
 		639154A42441BB2E001F328A /* MotionViewModelTestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639154A22441B9E0001F328A /* MotionViewModelTestMock.swift */; };
@@ -87,8 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				639154992441155A001F328A /* RxTest in Frameworks */,
-				639154932441155A001F328A /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +235,6 @@
 			);
 			name = WhirligigTests;
 			packageProductDependencies = (
-				639154922441155A001F328A /* RxBlocking */,
-				639154982441155A001F328A /* RxTest */,
 			);
 			productName = whirligigTests;
 			productReference = 63EA57722440D76B00F06F1B /* WhirligigTests.xctest */;
@@ -673,16 +667,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
-		};
-		639154922441155A001F328A /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		639154982441155A001F328A /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6391548824411535001F328A /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
 		};
 		639154AA2441D24A001F328A /* RxAnimated */ = {
 			isa = XCSwiftPackageProductDependency;
