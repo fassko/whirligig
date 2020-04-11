@@ -15,10 +15,14 @@ import RxSwift
 
 fileprivate var accelerationKey: UInt8 = 0
 
+enum MotionError: Error {
+  case notAvailable
+}
+
 extension Reactive where Base: CMMotionManager {
-  var acceleration: Observable<GyroData>? {
+  var acceleration: Observable<GyroData> {
     if !self.base.isAccelerometerAvailable {
-      return nil
+      return Observable.error(MotionError.notAvailable)
     }
     
     /// Memoize this closure,

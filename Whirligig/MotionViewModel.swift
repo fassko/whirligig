@@ -15,17 +15,6 @@ struct MotionViewModel: MotionViewModelProtocol {
   private let motionManager = CMMotionManager()
   
   func gyroUpdates() -> Observable<GyroData> {
-    Observable<GyroData>.create { observer in
-      self.motionManager.rx.acceleration?
-        .subscribe(onNext: { gyroData in
-          observer.onNext(gyroData)
-        }, onError: { error in
-          observer.onError(error)
-        }).disposed(by: self.disposeBag)
-      
-      return Disposables.create()
-    }
+    motionManager.rx.acceleration
   }
-  
-  private let disposeBag = DisposeBag()
 }
