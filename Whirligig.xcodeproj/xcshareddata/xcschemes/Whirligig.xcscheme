@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:whirligigTests/Whirligig.xctestplan"
+            reference = "container:Whirligig/Core/Whirligig.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -43,6 +43,16 @@
                BlueprintIdentifier = "63EA57712440D76B00F06F1B"
                BuildableName = "WhirligigTests.xctest"
                BlueprintName = "WhirligigTests"
+               ReferencedContainer = "container:Whirligig.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "63872C6224424D8200086C94"
+               BuildableName = "WhirligigUnitTests.xctest"
+               BlueprintName = "WhirligigUnitTests"
                ReferencedContainer = "container:Whirligig.xcodeproj">
             </BuildableReference>
          </TestableReference>

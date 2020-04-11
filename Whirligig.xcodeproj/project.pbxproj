@@ -195,7 +195,6 @@
 				639154A22441B9E0001F328A /* MotionViewModelTestMock.swift */,
 				63EA57762440D76B00F06F1B /* WhirligigTests.swift */,
 				639154BB24420249001F328A /* MotionData.swift */,
-				6391549A244115DE001F328A /* Whirligig.xctestplan */,
 				63EA57782440D76B00F06F1B /* Info.plist */,
 			);
 			path = whirligigTests;
@@ -204,6 +203,7 @@
 		63EA57852440D92700F06F1B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6391549A244115DE001F328A /* Whirligig.xctestplan */,
 				6391547B2440EDFF001F328A /* Models */,
 				639154A02441B835001F328A /* Coordinator */,
 				6391549F2441B81D001F328A /* Extensions */,
