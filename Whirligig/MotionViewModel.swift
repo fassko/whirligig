@@ -15,7 +15,11 @@ struct MotionViewModel: MotionViewModelProtocol {
   private let motionManager = CMMotionManager()
   
   var isAccelerometerAvailable: Bool {
-    motionManager.isAccelerometerAvailable
+    if CommandLine.unitTests {
+      return false
+    }
+    
+    return motionManager.isAccelerometerAvailable
   }
   
   func motionUpdates() -> Observable<MotionData> {

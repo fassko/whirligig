@@ -12,4 +12,8 @@ extension CommandLine {
   static var mockGyroData: Bool {
     CommandLine.arguments.contains("-mockGyroData")
   }
+  
+  static var unitTests: Bool {
+    CommandLine.arguments.contains("-unitTests")
+  }
 }

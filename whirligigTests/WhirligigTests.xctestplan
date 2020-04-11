@@ -10,6 +10,11 @@
   ],
   "defaultOptions" : {
     "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-unitTests"
+      }
+    ],
     "targetForVariableExpansion" : {
       "containerPath" : "container:Whirligig.xcodeproj",
       "identifier" : "63EA575B2440D76800F06F1B",
