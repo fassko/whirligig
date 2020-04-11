@@ -8,4 +8,9 @@ platform :ios do
       appicon_path: 'Whirligig//Assets.xcassets'
     )
   end
+
+  desc "Run tests"
+  lane :test do
+    scan
+  end
 end

@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane ios generate_app_icon
 ```
 Generate app icon
+### ios test
+```
+fastlane ios test
+```
+Run tests
 
 ----
 

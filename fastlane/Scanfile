@@ -1,0 +1,4 @@
+scheme("Whirligig")
+clean(true)
+project("Whirligig.xcodeproj")
+device("iPhone 11 Pro")
