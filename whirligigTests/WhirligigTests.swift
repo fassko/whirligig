@@ -55,7 +55,6 @@ extension GyroData {
   static func mocked() -> Self {
     GyroData(x: Double.random(in: 0...1),
              y: Double.random(in: 0...1),
-             z: Double.random(in: 0...1),
-             pitch: Double.random(in: 0...1))
+             z: Double.random(in: 0...1))
   }
 }
